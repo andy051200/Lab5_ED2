@@ -75,11 +75,11 @@ void __interrupt() isr(void) //funcion de interrupciones
                 antirrebote2=0;
                 break;
                 
-            case(0b11111110):
+            case(0b11111101):
                 antirrebote1=1;
                 break;
                 
-            case(0b11111101):
+            case(0b11111100):
                 antirrebote2=1;
                 break;
         }

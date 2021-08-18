@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Sun Aug 15 20:56:42 2021
+                                                                                               Mon Aug 16 22:40:19 2021
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	16F887
@@ -1693,7 +1693,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1609  015E  2977               	goto	i1l66
   1610  015F                     i1l67:	
   1611                           ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 78:        
-      +                               case(0b11111110):
+      +                               case(0b11111101):
   1612                           
   1613                           
   1614                           ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 79:        
@@ -1706,7 +1706,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1619  0161  2977               	goto	i1l66
   1620  0162                     i1l68:	
   1621                           ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 82:        
-      +                               case(0b11111101):
+      +                               case(0b11111100):
   1622                           
   1623                           
   1624                           ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 83:        
@@ -1742,7 +1742,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1651  016F                     i1l1468:
   1652                           
   1653                           ; Switch size 1, requested type "simple"
-  1654                           ; Number of cases is 2, Range of values is 253 to 254
+  1654                           ; Number of cases is 2, Range of values is 252 to 253
   1655                           ; switch strategies available:
   1656                           ; Name         Instructions Cycles
   1657                           ; simple_byte            7     4 (average)
@@ -1750,10 +1750,10 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1659                           ; jumptable            263     9 (fixed)
   1660                           ;	Chosen strategy is simple_byte
   1661  016F  0872               	movf	??_isr,w
-  1662  0170  3AFD               	xorlw	253	; case 253
+  1662  0170  3AFC               	xorlw	252	; case 252
   1663  0171  1903               	skipnz
   1664  0172  2962               	goto	i1l68
-  1665  0173  3A03               	xorlw	3	; case 254
+  1665  0173  3A01               	xorlw	1	; case 253
   1666  0174  1903               	skipnz
   1667  0175  295F               	goto	i1l67
   1668  0176  295C               	goto	i1l1212
@@ -2180,7 +2180,7 @@ DATA                 0      0      25      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Sun Aug 15 20:56:42 2021
+Symbol Table                                                                                   Mon Aug 16 22:40:19 2021
 
                      l84 025A                       l87 0092             ___awdiv@sign 0026  
                     l122 0270                      l109 01CB                      l361 00FB  
