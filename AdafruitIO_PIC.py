@@ -10,9 +10,10 @@ intefaz gráfica para el laboratorio de comunicacion SPI
 '''------------------------------------------------------------------------------
 -------------------------IMPORTAR LIBRERIAS--------------------------------------
 ------------------------------------------------------------------------------'''
+import builtins
 import tkinter as tk            #se importa libreria de GUI
 from tkinter import *
-#import serial, time             #se importa libreria serial y cuenta de tiempo
+import serial, time             #se importa libreria serial y cuenta de tiempo
 from Adafruit_IO import Client, RequestError, Feed
 '''------------------------------------------------------------------------------
 -----------------------DEFINICION DE OBJETOS------------------------------------
@@ -22,60 +23,73 @@ root.counter = 0                #se declara una variables en el objeto
 '''------------------------------------------------------------------------------
 -----------------------DEFINICION DE PUERTO SERIAL-------------------------------
 ------------------------------------------------------------------------------'''
-'''
 port1=serial.Serial()             #declarar puerto serial y braudeaje
 port1.port='COM1'                 #se dice el puerto a usar
 port1.baudrate = 9600             #set Baud rate to 9600
 port1.bytesize = 8                # Number of data bits = 8
 port1.parity   ='N'               # No parity
 port1.stopbits = 1                # Number of Stop bits = 1
-port1.open()                      #apertura del puerto serial                 '''     
+port1.open()                      #apertura del puerto serial                     
 '''------------------------------------------------------------------------------
------------------------DEFINICION DE ADAFRUIT-----------------------------------
+-------------------INTERCAMBIO DE DATOS CON ADAFRUIT-----------------------------
 ------------------------------------------------------------------------------'''
-ADAFRUIT_IO_USERNAME = "anbo_one"                       #usuario
-ADAFRUIT_IO_KEY = "aio_EaPL02hEyCOLeua2tFFkq2ihgXu0"    #contraseña
+#---------INICIALIZACION DE COMUNICACION CON ADAFRUIT
+ADAFRUIT_IO_USERNAME = "anbo_one"
+ADAFRUIT_IO_KEY = "aio_GdhK23Yi7WFHpoflAw9IEac0pJjf"
 aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)     #parametros
 
-#---------
+#---------SE MANDAN VALORES DE BOTONES DE GUI A ADAFRUIT
 digital_feed = aio.feeds('botones')
 aio.send_data(digital_feed.key, root.counter)
 digital_data = aio.receive(digital_feed.key)
 #print(f'digital signal: {digital_data.value}')
 
-#uart_recibido = port1.read_until(b'\r', size=4)      
-#uart_recibido=int(uart_recibido)   
+#---------SE MANDAN VALORES DE BOTONES DE PIC A ADAFRUIT
+#def uart():
+uart_recibido = port1.read_until(b'\r', size=4) 
+print(uart_recibido)         
+#uart_recibido=str(uart_recibido)   
 #print(uart_recibido)
-
-
-#-------mandar datos desde el pic para adafruit
-'''digital_feed = aio.feeds('botones-pic')
+digital_feed = aio.feeds('botones-pic')
 aio.send_data(digital_feed.key, uart_recibido)
-digital_data = aio.receive(digital_feed.key)'''
+digital_data = aio.receive(digital_feed.key)
 
+#---------SE RECIBE DATO DE SLIDER DE ADAFRUIT EN GUI
+adafruit_suma=aio.receive('suma-adafruit').value
 
 '''------------------------------------------------------------------------------
 -----------------------DEFINICION DE FUNCIONES-----------------------------------
 ------------------------------------------------------------------------------'''
-def plus_clicked():                                          #se define funcion para sumar
+#---------FUNCION PARA BOTON DE SUMA
+def plus_clicked():                                          
     root.counter += 1
-    if root.counter>255:                             #se restringe rango superior
+    if root.counter>255:           #se restringe limite superior
         root.counter=0
-    if root.counter<0:
+    if root.counter<0:             #se restringe limite inferior
         root.counter=255
     L['text'] = 'Contador: ' + str(root.counter)
+    digital_feed = aio.feeds('botones')
     aio.send_data(digital_feed.key, root.counter)
     
-
-def minus_clicked():                                          #se define funcion para sumar
+#---------FUNCION PARA BOTON DE RESTA
+def minus_clicked():                                          
     root.counter -= 1
-    if root.counter<0:
+    if root.counter<0:             #se restringe limite inferior         
         root.counter=255
-    if root.counter>255:
+    if root.counter>255:           #se restringe limite superior
         root.counter=0
     L['text'] = 'Contador: ' + str(root.counter)
+    digital_feed = aio.feeds('botones')
     aio.send_data(digital_feed.key, root.counter)
-
+#---------FUNCION PARA BOTON DE ACTUALIZAR DATO DE ADAFRUIT
+def actualizar():
+    adafruit_suma=aio.receive('suma-adafruit').value    #se recibe dato desde
+    recibido=Label(root, text=adafruit_suma)
+    recibido.place(x=160, y=220)
+    slider.set(adafruit_suma)
+    #digital_feed = aio.feeds('botones-pic')
+    #aio.send_data(digital_feed.key, uart_recibido)
+    
 '''------------------------------------------------------------------------------
 ----------------------------CUERPO DE INTERFAZ-----------------------------------
 ------------------------------------------------------------------------------'''
@@ -96,28 +110,16 @@ b1.place(x=150, y=75)
 b2 = Button(root, text="Resta", command=minus_clicked)
 b2.place(x=200,y=75)
 
-slider=Scale(root, from_=0,to=100)
+#boton de actualizar
+b3=Button(root, text='Actualizar', command=actualizar)
+b3.place(x=160, y=250)
+
+#slider para valores recibidos desde adafruit
+slider=Scale(root, from_=0,to=255, )
 slider.pack()
 slider.place(x=160, y=110)
-'''
-#POTENCIOMETROS
-#prueba=port1.read()
-label_pots=tk.Label(root, text=port1.read())
-label_pots.place(x=135, y=150)
-#print(port1.read())
 
-#texto indicador
-label1 = tk.Label(root, text = "Valor potenciometro 1")        #texto para el cuadro de texto
-label1.place(x=70,y=110)                                       #ubicacion del texto para contador
-pot1=tk.LabelFrame(root, text=port1.read())
-pot1.place(x=70,y=125)'''
-
-#POTENCIOMETRO2
-#texto indicador
-'''label2 = tk.Label(root, text = "Valor potenciometro 2")        #texto para el cuadro de texto
-label2.place(x=210,y=110)                                      #ubicacion del texto para contador
-pot2=tk.LabelFrame(root, text="wenas")
-pot2.place(x=260, y=110)'''
+#texto para llevar la cuenta de clicks
 L = Label(root, text="No clicks yet.")                      
 L.pack()
 
@@ -125,9 +127,4 @@ L.pack()
 ---------------------------------MAIN LOOP---------------------------------------
 ------------------------------------------------------------------------------'''
 root.mainloop()
-#loop para que siempre esté mandando el pic para adafruit
-'''while 1:
-    digital_feed = aio.feeds('botones-pic')
-    aio.send_data(digital_feed.key, uart_recibido)
-    digital_data = aio.receive(digital_feed.key)'''
-
+port1.close()
