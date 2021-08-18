@@ -75,11 +75,11 @@ void __interrupt() isr(void) //funcion de interrupciones
                 antirrebote2=0;
                 break;
                 
-            case(0b11111101):
+            case(0b11111110):
                 antirrebote1=1;
                 break;
                 
-            case(0b11111100):
+            case(0b11111101):
                 antirrebote2=1;
                 break;
         }
@@ -151,15 +151,15 @@ void setup(void)
     
     //-------CONFIGURACION DE INTERRUPCIONES
     INTCONbits.GIE=1;           //se habilita interrupciones globales
-    INTCONbits.PEIE = 1;        //habilitan interrupciones por perifericos
+    INTCONbits.PEIE=1;          //habilitan interrupciones por perifericos
     INTCONbits.RBIE=1;          //se  habilita IntOnChange B
     INTCONbits.RBIF=0;          //se  apaga bandera IntOnChange B
     IOCBbits.IOCB0=1;           //habilita IOCB RB0
     IOCBbits.IOCB1=1;           //habilita IOCB RB1
     PIE1bits.TXIE=1;            //enable interrupcion de tx uart
-    PIE1bits.RCIE=1;            //enable interrupcion de rx uart
+    //PIE1bits.RCIE=1;            //enable interrupcion de rx uart
     PIR1bits.TXIF=0;            //apago bandera interrupcion tx uart
-    PIR1bits.RCIF=0;            //apago bandera interrupcion rx uart
+    //PIR1bits.RCIF=0;            //apago bandera interrupcion rx uart*/
 }
 /*-----------------------------------------------------------------------------
  --------------------------------- FUNCIONES ----------------------------------
@@ -191,10 +191,7 @@ void mandar_datos(void)
             TXREG=un_mandar;     //mando unidades de cuenta botones
             break;
         case(4):
-            TXREG=10;            //mando nueva linea
-            break;
-        case(5):
-            TXREG=13;            //mando retorno de carro
+            TXREG=44;            //separador de coma
             break;
         case(20):
             cuenta_uart=0;          //un tipo de delay para reiniciar cuenta

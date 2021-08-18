@@ -6,7 +6,6 @@ Descripcion: un laboratoria bien fumado tbh pero chilero
 intefaz gráfica para el laboratorio de comunicacion SPI
 -------------------------------------------------------------------------------'''
 
-
 '''------------------------------------------------------------------------------
 -------------------------IMPORTAR LIBRERIAS--------------------------------------
 ------------------------------------------------------------------------------'''
@@ -35,7 +34,7 @@ port1.open()                      #apertura del puerto serial
 ------------------------------------------------------------------------------'''
 #---------INICIALIZACION DE COMUNICACION CON ADAFRUIT
 ADAFRUIT_IO_USERNAME = "anbo_one"
-ADAFRUIT_IO_KEY = "aio_GdhK23Yi7WFHpoflAw9IEac0pJjf"
+ADAFRUIT_IO_KEY = "aio_FMrA69aERoZaQnj6S8twozN8ZzzU"
 aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)     #parametros
 
 #---------SE MANDAN VALORES DE BOTONES DE GUI A ADAFRUIT
@@ -45,14 +44,14 @@ digital_data = aio.receive(digital_feed.key)
 #print(f'digital signal: {digital_data.value}')
 
 #---------SE MANDAN VALORES DE BOTONES DE PIC A ADAFRUIT
-#def uart():
-uart_recibido = port1.read_until(b'\r', size=4) 
-print(uart_recibido)         
-#uart_recibido=str(uart_recibido)   
+port1.flushInput()
+port1.flushOutput()
+'''uart_recibido = port1.read_until(b'\r', size=4)    
+#uart_recibido=int(uart_recibido )   
 #print(uart_recibido)
 digital_feed = aio.feeds('botones-pic')
 aio.send_data(digital_feed.key, uart_recibido)
-digital_data = aio.receive(digital_feed.key)
+digital_data = aio.receive(digital_feed.key)'''
 
 #---------SE RECIBE DATO DE SLIDER DE ADAFRUIT EN GUI
 adafruit_suma=aio.receive('suma-adafruit').value
@@ -87,8 +86,12 @@ def actualizar():
     recibido=Label(root, text=adafruit_suma)
     recibido.place(x=160, y=220)
     slider.set(adafruit_suma)
-    #digital_feed = aio.feeds('botones-pic')
-    #aio.send_data(digital_feed.key, uart_recibido)
+    uart_recibido1 = port1.read_until(b',',4)
+    uart_recibido2 = uart_recibido1.split(b',')
+    digital_feed = aio.feeds('botones-pic')
+    aio.send_data(digital_feed.key, int(uart_recibido2[0]))
+    print(int(uart_recibido2[0]))
+    
     
 '''------------------------------------------------------------------------------
 ----------------------------CUERPO DE INTERFAZ-----------------------------------
@@ -127,4 +130,11 @@ L.pack()
 ---------------------------------MAIN LOOP---------------------------------------
 ------------------------------------------------------------------------------'''
 root.mainloop()
-port1.close()
+#port1.close()
+'''while 1:
+    uart_recibido1 = port1.read_until(b',',4)
+    uart_recibido2 = uart_recibido1.split(b',')
+    digital_feed = aio.feeds('botones-pic')
+    aio.send_data(digital_feed.key, int(uart_recibido2[0]))
+    #digital_data = aio.receive(digital_feed.key)
+    print(int(uart_recibido2[0]))'''

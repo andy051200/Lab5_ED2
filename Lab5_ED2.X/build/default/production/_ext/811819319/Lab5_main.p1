@@ -341,7 +341,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 76:                 break;
 [e $U 140  ]
 "78
-[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 78:             case(0b11111101):
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 78:             case(0b11111110):
 [e :U 143 ]
 "79
 [; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 79:                 antirrebote1=1;
@@ -350,7 +350,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 80:                 break;
 [e $U 140  ]
 "82
-[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 82:             case(0b11111100):
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 82:             case(0b11111101):
 [e :U 144 ]
 "83
 [; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 83:                 antirrebote2=1;
@@ -363,8 +363,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e $U 140  ]
 [e :U 141 ]
-[e [\ -> _PORTB `i , $ -> 253 `i 143
- , $ -> 252 `i 144
+[e [\ -> _PORTB `i , $ -> 254 `i 143
+ , $ -> 253 `i 144
  142 ]
 [e :U 140 ]
 "86
@@ -518,7 +518,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 153:     INTCONbits.GIE=1;
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "154
-[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 154:     INTCONbits.PEIE = 1;
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 154:     INTCONbits.PEIE=1;
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
 "155
 [; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 155:     INTCONbits.RBIE=1;
@@ -535,15 +535,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "159
 [; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 159:     PIE1bits.TXIE=1;
 [e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
-"160
-[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 160:     PIE1bits.RCIE=1;
-[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
 "161
 [; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 161:     PIR1bits.TXIF=0;
 [e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
-"162
-[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 162:     PIR1bits.RCIF=0;
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
 "163
 [; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 163: }
 [e :UE 153 ]
@@ -623,31 +617,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 193:         case(4):
 [e :U 161 ]
 "194
-[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 194:             TXREG=10;
-[e = _TXREG -> -> 10 `i `uc ]
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 194:             TXREG=44;
+[e = _TXREG -> -> 44 `i `uc ]
 "195
 [; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 195:             break;
 [e $U 156  ]
 "196
-[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 196:         case(5):
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 196:         case(20):
 [e :U 162 ]
 "197
-[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 197:             TXREG=13;
-[e = _TXREG -> -> 13 `i `uc ]
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 197:             cuenta_uart=0;
+[e = _cuenta_uart -> -> 0 `i `uc ]
 "198
 [; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 198:             break;
 [e $U 156  ]
 "199
-[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 199:         case(20):
-[e :U 163 ]
-"200
-[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 200:             cuenta_uart=0;
-[e = _cuenta_uart -> -> 0 `i `uc ]
-"201
-[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 201:             break;
-[e $U 156  ]
-"202
-[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 202:     }
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 199:     }
 }
 [e $U 156  ]
 [e :U 157 ]
@@ -655,11 +640,10 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 2 `i 159
  , $ -> 3 `i 160
  , $ -> 4 `i 161
- , $ -> 5 `i 162
- , $ -> 20 `i 163
+ , $ -> 20 `i 162
  156 ]
 [e :U 156 ]
-"203
-[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 203: }
+"200
+[; ;C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c: 200: }
 [e :UE 155 ]
 }

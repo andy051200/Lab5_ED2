@@ -1,5 +1,5 @@
 ___awdiv@counter 25 0 BANK0 1
-__S0 271 0 ABS 0
+__S0 267 0 ABS 0
 __S1 78 0 ABS 0
 __S2 0 0 ABS 0
 __S3 0 0 ABS 0
@@ -10,11 +10,11 @@ __end_of___awdiv FC 0 CODE 0
 _isr 157 0 CODE 0
 osc_config@freq 22 0 BANK0 1
 __end_of_osc_config 1CC 0 CODE 0
-_main 205 0 CODE 0
+_main 1FD 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 7E 0 ABS 0
 start E 0 CODE 0
-__end_of_uart_config 271 0 CODE 0
+__end_of_uart_config 267 0 CODE 0
 _TXREG 19 0 ABS 0
 reset_vec 0 0 CODE 0
 _TRISD 88 0 ABS 0
@@ -30,7 +30,7 @@ __Lconfig 0 0 CONFIG 4
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
 __size_of_isr 0 0 ABS 0
-_setup 231 0 CODE 0
+_setup 229 0 CODE 0
 __Hfunctab 0 0 ENTRY 0
 __Lfunctab 0 0 ENTRY 0
 __Hcommon 0 0 ABS 0
@@ -70,7 +70,7 @@ ___awmod@sign 2F 0 BANK0 1
 saved_w 7E 0 ABS 0
 __Hinit E 0 CODE 0
 __Linit E 0 CODE 0
-__end_of_main 231 0 CODE 0
+__end_of_main 229 0 CODE 0
 _mapeos 21 0 CODE 0
 _un_mandar 34 0 BANK0 1
 __Htext 0 0 ABS 0
@@ -98,8 +98,8 @@ __Hpowerup 0 0 CODE 0
 __Lpowerup 0 0 CODE 0
 _antirrebote2 3B 0 BANK0 1
 __size_of_uart_config 0 0 ABS 0
-__ptext1 231 0 CODE 0
-__ptext2 25B 0 CODE 0
+__ptext1 229 0 CODE 0
+__ptext2 251 0 CODE 0
 __ptext3 193 0 CODE 0
 __ptext4 21 0 CODE 0
 __ptext5 FC 0 CODE 0
@@ -117,7 +117,7 @@ _BAUDCTLbits 187 0 ABS 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
 ___awmod FC 0 CODE 0
-__Hspace_0 271 0 ABS 0
+__Hspace_0 267 0 ABS 0
 __Lspace_0 0 0 ABS 0
 __end_of_isr 193 0 CODE 0
 __Hspace_1 78 0 ABS 0
@@ -150,7 +150,7 @@ __Hend_init 11 0 CODE 0
 __Lend_init E 0 CODE 0
 ___awdiv@divisor 20 0 BANK0 1
 __size_of_osc_config 0 0 ABS 0
-__end_of_setup 25B 0 CODE 0
+__end_of_setup 251 0 CODE 0
 __Hreset_vec 3 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 intlevel0 0 0 ENTRY 0
@@ -166,24 +166,24 @@ start_initialization 11 0 CODE 0
 ___awdiv@quotient 27 0 BANK0 1
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
-__pmaintext 205 0 CODE 0
+__pmaintext 1FD 0 CODE 0
 _OPTION_REGbits 81 0 ABS 0
 __size_of___awmod 0 0 ABS 0
-_uart_config 25B 0 CODE 0
+_uart_config 251 0 CODE 0
 __initialization 11 0 CODE 0
 __size_of_mapeos 0 0 ABS 0
 ___awmod@dividend 2B 0 BANK0 1
 ___awmod@counter 2E 0 BANK0 1
-__end_of_mandar_datos 205 0 CODE 0
+__end_of_mandar_datos 1FD 0 CODE 0
 ___awdiv@dividend 22 0 BANK0 1
 %segments
 reset_vec 0 5 CODE 0 0
-intentry 8 4E1 CODE 8 0
+intentry 8 4CD CODE 8 0
 cstackCOMMON 70 77 COMMON 70 1
 cstackBANK0 20 3C BANK0 20 1
 %locals
 dist/default/production\Lab5_ED2.X.production.o
-C:\Users\ANDYBO~1\AppData\Local\Temp\xcAsmls.s
+C:\Users\ANDYBO~1\AppData\Local\Temp\xcAs7l0.s
 796 11 0 CODE 0
 799 11 0 CODE 0
 840 11 0 CODE 0
@@ -202,53 +202,51 @@ C:\Users\ANDYBO~1\AppData\Local\Temp\xcAsmls.s
 861 1D 0 CODE 0
 862 1E 0 CODE 0
 C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c
-99 205 0 CODE 0
-102 205 0 CODE 0
-107 20A 0 CODE 0
-109 215 0 CODE 0
-110 219 0 CODE 0
-113 21A 0 CODE 0
-115 223 0 CODE 0
-116 225 0 CODE 0
-122 226 0 CODE 0
-123 228 0 CODE 0
-130 231 0 CODE 0
-133 231 0 CODE 0
-134 234 0 CODE 0
-136 235 0 CODE 0
-137 238 0 CODE 0
-138 239 0 CODE 0
-141 23A 0 CODE 0
-142 23D 0 CODE 0
-144 23E 0 CODE 0
-146 244 0 CODE 0
-148 249 0 CODE 0
-149 24C 0 CODE 0
-150 24D 0 CODE 0
-153 24E 0 CODE 0
-154 24F 0 CODE 0
-155 250 0 CODE 0
-156 251 0 CODE 0
-157 252 0 CODE 0
-158 253 0 CODE 0
-159 254 0 CODE 0
-160 255 0 CODE 0
-161 256 0 CODE 0
-162 259 0 CODE 0
-163 25A 0 CODE 0
+99 1FD 0 CODE 0
+102 1FD 0 CODE 0
+107 202 0 CODE 0
+109 20D 0 CODE 0
+110 211 0 CODE 0
+113 212 0 CODE 0
+115 21B 0 CODE 0
+116 21D 0 CODE 0
+122 21E 0 CODE 0
+123 220 0 CODE 0
+130 229 0 CODE 0
+133 229 0 CODE 0
+134 22C 0 CODE 0
+136 22D 0 CODE 0
+137 230 0 CODE 0
+138 231 0 CODE 0
+141 232 0 CODE 0
+142 235 0 CODE 0
+144 236 0 CODE 0
+146 23C 0 CODE 0
+148 241 0 CODE 0
+149 244 0 CODE 0
+150 245 0 CODE 0
+153 246 0 CODE 0
+154 247 0 CODE 0
+155 248 0 CODE 0
+156 249 0 CODE 0
+157 24A 0 CODE 0
+158 24B 0 CODE 0
+159 24C 0 CODE 0
+161 24D 0 CODE 0
+163 250 0 CODE 0
 C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/UART_CONFIG.c
-21 25B 0 CODE 0
-24 25B 0 CODE 0
-25 25E 0 CODE 0
-26 25F 0 CODE 0
-27 260 0 CODE 0
-28 263 0 CODE 0
-29 266 0 CODE 0
-31 268 0 CODE 0
-32 26B 0 CODE 0
-33 26C 0 CODE 0
-34 26D 0 CODE 0
-35 270 0 CODE 0
+21 251 0 CODE 0
+24 251 0 CODE 0
+25 254 0 CODE 0
+26 255 0 CODE 0
+27 256 0 CODE 0
+28 259 0 CODE 0
+29 25C 0 CODE 0
+31 25E 0 CODE 0
+32 261 0 CODE 0
+33 262 0 CODE 0
+34 263 0 CODE 0
+35 266 0 CODE 0
 C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Osc_config.c
 16 193 0 CODE 0
 18 196 0 CODE 0
@@ -385,15 +383,12 @@ C:/Users/Andy Bonilla/Documents/GitHub/ED2/Lab5_ED2/Lab5_ED2.X/Lab5_main.c
 194 1DC 0 CODE 0
 195 1E0 0 CODE 0
 197 1E1 0 CODE 0
-198 1E5 0 CODE 0
-200 1E6 0 CODE 0
-201 1E7 0 CODE 0
-202 1E8 0 CODE 0
-202 1ED 0 CODE 0
-202 1F2 0 CODE 0
-202 1F5 0 CODE 0
-202 1F8 0 CODE 0
-202 1FB 0 CODE 0
-202 1FE 0 CODE 0
-202 201 0 CODE 0
-203 204 0 CODE 0
+198 1E2 0 CODE 0
+199 1E3 0 CODE 0
+199 1E8 0 CODE 0
+199 1ED 0 CODE 0
+199 1F0 0 CODE 0
+199 1F3 0 CODE 0
+199 1F6 0 CODE 0
+199 1F9 0 CODE 0
+200 1FC 0 CODE 0

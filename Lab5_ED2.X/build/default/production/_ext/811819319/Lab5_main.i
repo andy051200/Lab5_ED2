@@ -2685,11 +2685,11 @@ void __attribute__((picinterrupt(("")))) isr(void)
                 antirrebote2=0;
                 break;
 
-            case(0b11111101):
+            case(0b11111110):
                 antirrebote1=1;
                 break;
 
-            case(0b11111100):
+            case(0b11111101):
                 antirrebote2=1;
                 break;
         }
@@ -2761,15 +2761,15 @@ void setup(void)
 
 
     INTCONbits.GIE=1;
-    INTCONbits.PEIE = 1;
+    INTCONbits.PEIE=1;
     INTCONbits.RBIE=1;
     INTCONbits.RBIF=0;
     IOCBbits.IOCB0=1;
     IOCBbits.IOCB1=1;
     PIE1bits.TXIE=1;
-    PIE1bits.RCIE=1;
+
     PIR1bits.TXIF=0;
-    PIR1bits.RCIF=0;
+
 }
 
 
@@ -2801,10 +2801,7 @@ void mandar_datos(void)
             TXREG=un_mandar;
             break;
         case(4):
-            TXREG=10;
-            break;
-        case(5):
-            TXREG=13;
+            TXREG=44;
             break;
         case(20):
             cuenta_uart=0;
