@@ -46,12 +46,6 @@ digital_data = aio.receive(digital_feed.key)
 #---------SE MANDAN VALORES DE BOTONES DE PIC A ADAFRUIT
 port1.flushInput()
 port1.flushOutput()
-'''uart_recibido = port1.read_until(b'\r', size=4)    
-#uart_recibido=int(uart_recibido )   
-#print(uart_recibido)
-digital_feed = aio.feeds('botones-pic')
-aio.send_data(digital_feed.key, uart_recibido)
-digital_data = aio.receive(digital_feed.key)'''
 
 #---------SE RECIBE DATO DE SLIDER DE ADAFRUIT EN GUI
 adafruit_suma=aio.receive('suma-adafruit').value
@@ -96,33 +90,33 @@ def actualizar():
 '''------------------------------------------------------------------------------
 ----------------------------CUERPO DE INTERFAZ-----------------------------------
 ------------------------------------------------------------------------------'''
-#TITULO
+#---------TITULO
 titulo=tk.Label(root,text = "GUI para laboratorio 5, Electrónica Digital 2") #texto como titulo de GUI
 titulo.place(x=90, y=20)
 subtitulo=tk.Label(root, text="Comunicacion con Adafruit")
 subtitulo.place(x=115,y=50)
-#titulo de la ventana
-root.title("GUI Lab5, Electronica Digital 2")                   #le pones titulo al objeto
+#---------TITULO DE VENTANA
+root.title("Electronica Digital 2")                   #le pones titulo al objeto
 root.minsize(400,300)                                           #le decis el tamaño a la ventana
 
-#boton de suma
+#---------BOTON DE SUMA
 b1 = Button(root, text="Suma", command=plus_clicked)
 b1.place(x=150, y=75)
 
-#boton de resta 
+#---------BOTON DE RESTA PARA ADAFRUIT
 b2 = Button(root, text="Resta", command=minus_clicked)
 b2.place(x=200,y=75)
 
-#boton de actualizar
+#---------BOTON ACTUALIZADOR PARA ADAFRUIT
 b3=Button(root, text='Actualizar', command=actualizar)
 b3.place(x=160, y=250)
 
-#slider para valores recibidos desde adafruit
+#---------SLIDER CON VALORES DESDE ADAFRUIT
 slider=Scale(root, from_=0,to=255, )
 slider.pack()
 slider.place(x=160, y=110)
 
-#texto para llevar la cuenta de clicks
+#---------TEXTO PARA CONTADOR
 L = Label(root, text="No clicks yet.")                      
 L.pack()
 
@@ -130,11 +124,3 @@ L.pack()
 ---------------------------------MAIN LOOP---------------------------------------
 ------------------------------------------------------------------------------'''
 root.mainloop()
-#port1.close()
-'''while 1:
-    uart_recibido1 = port1.read_until(b',',4)
-    uart_recibido2 = uart_recibido1.split(b',')
-    digital_feed = aio.feeds('botones-pic')
-    aio.send_data(digital_feed.key, int(uart_recibido2[0]))
-    #digital_data = aio.receive(digital_feed.key)
-    print(int(uart_recibido2[0]))'''
